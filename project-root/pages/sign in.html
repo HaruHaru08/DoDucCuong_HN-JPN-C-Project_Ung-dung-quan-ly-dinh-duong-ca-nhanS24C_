@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/3307286abb.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/sign in.css" />
+  </head>
+  <body>
+    <div class="lack error" style="display: none;">
+        <div><i class="fa-solid fa-circle-minus"></i><b>Error</b><i class="fa-solid fa-circle-xmark" id="icon"></i></div>
+        <div class="wrong ">
+            <!-- <p>Mật khẩu không được bỏ trống</p>
+            <p>Email không được bỏ trống</p> -->
+        </div>
+    </div>
+    <div class="lack success" style="display: none;">
+        <i class="fa-solid fa-circle-check" id="icon-check"></i>Đăng nhập thành công
+    </div>
+    <div class="container">
+      <img src="../assets/images-removebg-preview 1.png" alt="" />
+      <p>Please sign up</p>
+      <div class="box-input">
+        <input type="email" name="email" id="email" placeholder="Email address" />
+        <input type="password" name="password" id="password" placeholder="Password"/>
+      </div>
+      <div class="selection">
+        <input type="checkbox" name="check" id="checkbox">
+        <label for="checkbox">Remember me</label>
+      </div>
+      <p>
+        Already have an account,
+        <span><a href="./sign up.html">Click here!</a></span>
+      </p>
+      <button id="btn-login">Sign up</button>
+      <p>&copy 2025 - Rikkei Education</p>
+    </div>
+    <script src="../js/sign in.js"></script>
+  </body>
+</html>

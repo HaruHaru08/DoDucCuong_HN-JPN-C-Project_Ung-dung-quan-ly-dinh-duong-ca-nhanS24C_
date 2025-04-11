@@ -1,0 +1,275 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/fonts/Open_Sans/OpenSans-VariableFont.ttf")
+    format("truetype");
+}
+body,
+html {
+  height: 100%;
+  font-family: "Open Sans";
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+nav {
+  width: 220px;
+  background-color: #2f4050;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding: 20px; */
+  color: white;
+  border-radius: 4px;
+}
+nav .logo {
+  text-align: center;
+}
+nav .logo img {
+  width: 20%;
+  max-width: 150px;
+}
+nav .logo #img_logo {
+  width: 100%;
+  margin: 56px 15px;
+}
+.list_nav a {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.list_nav a img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.list_nav a:hover {
+  background-color: #1c2b36;
+  border-radius: 4px;
+}
+
+.sign_out {
+  display: flex;
+  align-items: center;
+  background-color: #12896d;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.sign_out img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.sign_out:hover {
+  background-color: #0f6d54;
+}
+.container {
+  flex: 1;
+  background-color: #f8f9fa;
+  height: 100%;
+}
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #7d7d7d;
+}
+.top-bar i {
+  font-size: 24px;
+  color: #ffffff;
+  background-color: #1ab394;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.top-bar p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+.container .task {
+  color: #888;
+  background-color: #ffff;
+  padding: 15px;
+  height: 90px;
+  border-bottom: 1px solid #7d7d7d;
+}
+.container .task p:nth-child(1) {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.content {
+  margin: 25px 15px;
+  background-color: #ffffff;
+  height: auto;
+}
+.recip p {
+  padding-left: 25px;
+  color: #676a6c;
+}
+.recip p:nth-child(1) {
+  padding-top: 20px;
+  font-size: 20px;
+}
+.search {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+}
+.search_food {
+  height: 34px;
+  flex: 2;
+}
+
+.search input {
+  padding: 8px 13px;
+  font-size: 13px;
+  border: 1px solid #e5e6e7;
+  border-radius: 1px;
+}
+.search_food .custom_input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.custom_input button {
+  /* border: none; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 300px;
+  height: 52px;
+}
+.custom_input button i {
+  font-size: 18px;
+  color: #888;
+}
+.custom_input button select{
+  height: 40px;
+  width: 700px;
+}
+.food_child {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.child {
+  display: flex;
+  border: 1px solid #8888;
+  border-radius: 5px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  color: #676a6c;
+  padding: 10px;
+}
+.child .text p:nth-child(1) {
+  font-weight: bold;
+}
+table {
+  color: #282828;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+th {
+  color: #8888;
+  font-weight: 400;
+  font-size: 11px;
+  padding-right: 76px;
+  text-align: left;
+}
+td {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.page {
+  display: flex;
+  justify-content: end;
+  margin: 30px;
+  padding-bottom: 20px;
+}
+/* Định dạng cho phần tử chứa các nút Previous, các nút số, và Next */
+.list_page {
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+/* Định dạng cho các nút Previous và Next */
+.list_page button {
+  width: 40px; 
+  height: 40px;
+  border: 1px solid #ccc; 
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 16px; 
+  cursor: pointer; /* Khi di chuột qua nút, con trỏ chuột sẽ đổi thành hình bàn tay, báo hiệu nút có thể nhấn */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  /* transition: background-color 0.3s ease; Tạo hiệu ứng chuyển màu nền mượt mà trong 0.3 giây khi hover */
+  border-radius: 4px; /* Bo góc nút 4px, tạo góc tròn nhẹ */
+}
+/* Hiệu ứng khi di chuột qua nút Previous và Next */
+.list_page button:hover {
+  background-color: #e0e0e0; 
+}
+/* Định dạng cho phần tử chứa các nút số (1, 2, 3,...) */
+#page-number {
+  display: flex; /* Sử dụng Flexbox để sắp xếp các nút số theo hàng ngang */
+  gap: 5px;
+}
+/* Định dạng cho từng nút số (1, 2, 3,...) */
+.page-btn {
+  width: 40px; 
+  height: 40px; 
+  border: 1px solid #ccc;
+  background-color: #f9f9f9; 
+  color: #333; 
+  font-size: 16px;
+  cursor: pointer; /* Khi di chuột qua nút, con trỏ chuột đổi thành hình bàn tay */
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  /* transition: background-color 0.3s ease, color 0.3s ease; Tạo hiệu ứng chuyển màu nền và màu chữ mượt mà trong 0.3 giây */
+  border-radius: 4px; 
+}
+.page-btn:hover {
+  background-color: #e0e0e0; 
+}
+
+.creat_food {
+  margin: 10px 20px;
+  border: 1px solid #8888;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  margin-top: 0;
+}
+.creat_food img {
+  margin-right: 18px;
+}

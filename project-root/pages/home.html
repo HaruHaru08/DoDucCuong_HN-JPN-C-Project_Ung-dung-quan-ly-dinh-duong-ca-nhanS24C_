@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/3307286abb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/home.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="nav_item">
+        <div class="logo">
+          <img id="img_logo" src="../assets/images-removebg-preview 1.png" alt="Logo" />
+          <div class="list_nav">
+            <a href="./home.html">
+              <img src="../assets/home.svg" alt="" /><span>Homepage</span>
+            </a>
+            <a href="./food.html">
+              <img src="../assets/foods.svg" alt="" /><span>Foods</span>
+            </a>
+            <a href="./recipes.html">
+              <img src="../assets/recipes.svg" alt="" /><span
+                >Recipes</span
+              >
+            </a>
+          </div>
+        </div>
+        <div class="sign_out">
+          <img src="../assets/sign_out.svg" alt="" />
+          <span>Sign out</span>
+        </div>
+      </nav>
+
+      <div class="filter">
+        <div class="top-bar">
+          <i class="fa-solid fa-bars"></i>
+          <p id="name"></p>
+        </div>
+        <div class="task">
+          <p>Recipes</p>
+          <p>Creat, check and update recipes</p>
+        </div>
+        <div class="head">
+          <div class="section">
+            <div class="recip">
+              <h3>Recipes</h3>
+              <p>Search, check and create new recipes</p>
+            </div>
+            <div class="search">
+              <input
+                type="text"
+                name="food"
+                id="search-food"
+                placeholder="Search food"
+              />
+              <div class="sort">
+                <button>
+                  <i class="fa-solid fa-arrow-up-short-wide"></i>
+                  <select>
+                    <option value="Sort by nutrient">Sort by nutrient</option>
+                    <option value="Energy">Energy</option>
+                    <option value="Fat">Fat</option>
+                    <option value="Carbohydrate">Carbohydrate</option>
+                    <option value="Protein">Protein</option>
+                  </select>
+                </button>
+              </div>
+              <select id="category">
+                <option value="category">Category</option>
+                <option value="Vegetarian dishes">Vegetarian dishes</option>
+                <option value="Meat dishes">Meat dishes</option>
+                <option value="Desserts">Desserts</option>
+                <option value="Chicken dishes">Chicken dishes</option>
+              </select>
+            </div>
+          </div>
+          <div id="nutrition-table" class="nutrition-table">
+            <!-- Recipes will be dynamically added here -->
+          </div>
+          <div class="page">
+            <div class="list-page">
+              <div id="page-number"></div>
+              <button>
+                <i class="fa-solid fa-left-long"></i>
+              </button>
+              <button>
+                <i class="fa-solid fa-right-long"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/home.js"></script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/3307286abb.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Grechen+Fuemen&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/recipes.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="nav_item">
+        <div class="logo">
+          <img id="img_logo" src="../assets/images-removebg-preview 1.png" alt="Logo" />
+          <div class="list_nav">
+            <a href="./home.html">
+              <img src="../assets/home.svg" alt="" /><span>Homepage</span>
+            </a>
+            <a href="./food.html">
+              <img src="../assets/foods.svg" alt="" /><span>Foods</span>
+            </a>
+            <a href="./recipes.html">
+              <img src="../assets/recipes.svg" alt="" /><span
+                >Recipes</span
+              >
+            </a>
+          </div>
+        </div>
+        <div class="sign_out">
+          <img src="../assets/sign_out.svg" alt="" />
+          <span>Sign out</span>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="infor">
+            <i class="fa-solid fa-bars" id="icon-menu"></i>
+          <span id="name"></span>
+        </div>
+        <div class="task">
+          <p>Recipes</p>
+          <p>Creat, check and update recipes</p>
+        </div>
+        <div class="content">
+          <!-- thông tin bảng -->
+          <div class="recip">
+            <div class="title">
+              <p>Recipes</p>
+              <p>Search, check and create new recipes</p>
+            </div>
+            <img src="../assets/add_recipe.svg" alt="" id="btn-add"/>
+          </div>
+
+          <!-- Công cụ search,sort -->
+          <div class="search">
+            <input
+              class="search_food"
+              type="text"
+              placeholder="Search recipes by name"
+            />
+            <div class="custom_input">
+              <button>
+                <i class="fa-solid fa-arrow-up-short-wide"></i>
+                <select>
+                  <option value="Sort by nutrient">Sort by nutrient</option>
+                  <option value="Energy">Energy</option>
+                  <option value="Fat">Fat</option>
+                  <option value="Carbohydrate">Carbohydrate</option>
+                  <option value="Protein">Protein</option>
+                </select>
+              </button>
+            </div>
+            <div class="search_category">
+              <select id="category">
+                <option value="category">Category</option>
+                <option value="Vegetarian dishes">Vegetarian dishes</option>
+                <option value="Meat dishes">Meat dishes</option>
+                <option value="Desserts">Desserts</option>
+                <option value="Chicken dishes">Chicken dishes</option>
+              </select>
+            </div>
+          </div>
+          <div class="favorites">
+            <div class="btn_favorites">
+                <i class="fa-regular fa-heart" id="icon-heart"></i>
+              <p>Favorites</span>
+              <span>0</span>
+            </div>
+            <div class="my_recipes">
+                <img src="../assets/icon_checked.svg" alt="checked">
+                <img src="../assets/icon_fix.svg" alt="icon_fix">
+                <p>My recipes</p>
+            </div>
+          </div>
+          <!-- Lưới phần tử con -->
+          <div class="recip_child" id="recip_child">
+            <!-- child -->
+            <!---->
+          </div>
+          <div class="page">
+            <div class="list-page">
+              <div id="page-number"></div>
+              <button id="btn-prev">
+                <i class="fa-solid fa-left-long"></i>
+              </button>
+              <button id="btn-next">
+                <i class="fa-solid fa-right-long"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/recipes.js"></script>
+  </body>
+</html>

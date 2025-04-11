@@ -1,0 +1,380 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/fonts/Open_Sans/OpenSans-VariableFont.ttf")
+    format("truetype");
+}
+body,
+html {
+height: 100%;
+font-family: "Open Sans";
+font-size: 13px;
+overflow-x: hidden;
+background-color: #F3F3F4;  
+margin: 0;
+padding: 0;
+}
+
+.wrapper {
+display: flex;
+height: 100vh;
+}
+
+nav {
+width: 220px;
+background-color: #2f4050;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+/* padding: 20px; */
+color: white;
+border-radius: 4px;
+flex-shrink: 0;
+}
+nav .logo {
+text-align: center;
+}
+nav .logo img {
+width: 20%;
+max-width: 150px;
+}
+nav .logo #img_logo {
+width: 100%;
+margin: 56px 15px;
+}
+.list_nav a {
+display: flex;
+align-items: center;
+padding: 15px;
+text-decoration: none;
+color: white;
+}
+
+.list_nav a img {
+width: 30px;
+height: 30px;
+margin-right: 10px;
+}
+.list_nav a:hover {
+background-color: #1c2b36;
+border-radius: 4px;
+}
+
+.sign_out {
+display: flex;
+align-items: center;
+background-color: #12896d;
+padding: 15px;
+border-radius: 5px;
+}
+
+.sign_out img {
+width: 30px;
+height: 30px;
+margin-right: 10px;
+}
+.sign_out:hover {
+background-color: #0f6d54;
+}
+.container {
+  width: 1300px;
+  height: 1300.14px;
+}
+#icon-menu{
+  font-size: 24px;
+  color: #ffffff;
+  background-color: #1ab394;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.infor {
+  display: flex;
+align-items: center;
+justify-content: space-between;
+background-color: #ffffff;
+padding-bottom: 10px;
+border-bottom: 1px solid #7d7d7d;
+}
+.infor span{
+  padding: 10px;
+  font-size: 20px;
+}
+.container .task {
+  color: #888;
+  background-color: #ffff;
+  padding: 15px;
+  height: 90px;
+}
+.container .task p:nth-child(1) {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.content {
+  margin: 25px 15px;
+  background-color: #ffff;
+  height: 100%;
+}
+
+.recip {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  padding-bottom: 0;
+}
+.recip p {
+  color: #676a6c;
+}
+.recip p:nth-child(1) {
+  padding-top: 20px;
+  font-size: 20px;
+}
+.search {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  align-items: center;
+}
+.search input {
+  padding: 8px 13px;
+  font-size: 13px;
+  border: 1px solid #eeeeee;
+  border-radius: 1px;
+}
+.search_food .custom_input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search_food{
+  width: 700px;
+  height: 26px;
+}
+.custom_input button {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+.search .search_category {
+  border: 1px solid #eeeeee;
+  display: flex;
+  height: 44px;
+}
+.search .search_category select {
+ width: 300px;
+}
+.custom_input button select {
+  width: 200px;
+  height: 40px;
+}
+.custom_input button i {
+  padding: 8px;
+  position: relative;
+  top: 6px;
+  left: -3px;
+}
+.favorites {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+.btn_favorites {
+  display: flex;
+  gap: 10px;
+  border: 1px solid #aaaaaa;
+  padding: 9px 13px;
+  border-radius: 3px;
+  align-items: center;
+  color: #676a6c;
+}
+.btn_favorites img {
+  width: 14px;
+  height: 14px;
+}
+.btn_favorites span {
+  color: #aaaaaa;
+}
+.my_recipes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.my_recipes img {
+  height: 16px;
+  width: 16px;
+}
+.my_recipes p {
+  color: #2ba0cc;
+}
+.search button img:nth-child(3) {
+  background: #ffffff;
+}
+.recip_child {
+  display: flex;
+  gap: 11px;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-between;
+}
+.child {
+  display: flex;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: calc(50% - 11px);
+  color: #676a6c;
+}
+.icon_child {
+  flex-shrink: 0;
+  width: 150px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffff;
+  box-shadow: 3px 5px rgb(204, 201, 201);
+  border-radius: 6px;
+  height: 18px;
+  margin: 10px 10px;
+  padding: 7px 15px;
+  color: #ea9f77;
+  font-weight: bold;
+}
+.icon_child img {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+.icon_child p{
+  color: #ff7043;
+    font-size: 12px;  
+}
+.content_child{
+  background-color: #ffffff;
+}
+.content_child p {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+.name_recip {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+.heart {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.heart span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #aaaa;
+  padding: 6px 7px;
+  border-radius: 4px;
+}
+.heart span:nth-of-type(1){
+  margin-right: 20px;
+}
+.heart span i {
+  font-size: 16px;
+  color: #ff7043;
+  margin-right: 5px;
+}
+.icon_content {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.icon_content img {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+table {
+  color: #282828;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+th {
+  color: #8888;
+  font-weight: 400;
+  font-size: 11px;
+  padding-right: 30px;
+  text-align: left;
+}
+td {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+td:nth-child(1) {
+  color: #8888;
+  font-weight: 400;
+}
+td:nth-child(4){
+  display: flex;
+  justify-content:space-evenly;
+}
+.page {
+  display: flex;
+  justify-content: end;
+  margin: 30px;
+  padding-bottom: 20px;
+}
+/* Định dạng cho phần tử chứa các nút Previous, các nút số, và Next */
+.list-page {
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+/* Định dạng cho các nút Previous và Next */
+.list-page button {
+  width: 40px; 
+  height: 40px;
+  border: 1px solid #ccc; 
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 16px; 
+  cursor: pointer; /* Khi di chuột qua nút, con trỏ chuột sẽ đổi thành hình bàn tay, báo hiệu nút có thể nhấn */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  /* transition: background-color 0.3s ease; Tạo hiệu ứng chuyển màu nền mượt mà trong 0.3 giây khi hover */
+  border-radius: 4px; /* Bo góc nút 4px, tạo góc tròn nhẹ */
+}
+/* Hiệu ứng khi di chuột qua nút Previous và Next */
+.list-page button:hover {
+  background-color: #e0e0e0; 
+}
+/* Định dạng cho phần tử chứa các nút số (1, 2, 3,...) */
+#page-number {
+  display: flex; /* Sử dụng Flexbox để sắp xếp các nút số theo hàng ngang */
+  gap: 5px;
+}
+/* Định dạng cho từng nút số (1, 2, 3,...) */
+.page-btn {
+  width: 40px; 
+  height: 40px; 
+  border: 1px solid #ccc;
+  background-color: #f9f9f9; 
+  color: #333; 
+  font-size: 16px;
+  cursor: pointer; /* Khi di chuột qua nút, con trỏ chuột đổi thành hình bàn tay */
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  /* transition: background-color 0.3s ease, color 0.3s ease; Tạo hiệu ứng chuyển màu nền và màu chữ mượt mà trong 0.3 giây */
+  border-radius: 4px; 
+}
+.page-btn:hover {
+  background-color: #e0e0e0; 
+}

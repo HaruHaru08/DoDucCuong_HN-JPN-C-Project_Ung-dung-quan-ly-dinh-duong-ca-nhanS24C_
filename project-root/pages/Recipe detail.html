@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/3307286abb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/Recipe detail.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <div class="logo">
+          <img
+            id="img_logo"
+            src="../assets/images-removebg-preview 1.png"
+            alt="Logo"
+          />
+          <div class="list_nav">
+            <a href="./home.html">
+              <img src="../assets/home.svg" alt="" /><span>Homepage</span>
+            </a>
+            <a href="./food.html">
+              <img src="../assets/foods.svg" alt="" /><span>Foods</span>
+            </a>
+            <a href="./recipes.html">
+              <img src="../assets/recipes.svg" alt="" /><span
+                >Recipes</span
+              >
+            </a>
+          </div>
+        </div>
+        <div class="sign_out">
+          <img src="../assets/sign_out.svg" alt="" />
+          <span>Sign out</span>
+        </div>
+      </nav>
+
+      <div class="filter">
+        <div class="top-bar">
+          <i class="fa-solid fa-bars"></i>
+          <p id="name"></p>
+        </div>
+        <div class="task">
+          <p>Recipes</p>
+          <p>Creat, check and update recipes</p>
+        </div>
+        <div class="container">
+          <div class="child">
+            <div class="first-row">
+              <div class="icon_child">
+                <p>
+                  <img
+                    src="../assets/diversity_3.svg.png"
+                    alt="icon"
+                  />Community Recipes
+                </p>
+              </div>
+              <div class="heart">
+                <span>
+                  <i class="fa-regular fa-heart"></i>
+                  37
+                </span>
+              </div>
+            </div>
+            <span id="category"><img src="../assets/ngũ giác.png" alt="">Vegetariandishes</span>
+            <div class="category-dropdown" style="display: none;">
+              <input type="text" id="category-input" placeholder="Thêm mới hoặc chọn từ dropdown" readonly />
+              <ul id="category-list" style="display: none;">
+                <li>Desserts</li>
+                <li>Breakfast and snacks</li>
+                <li>Appetizers and side dishes</li>
+                <li>Soups</li>
+                <li>Meat dishes</li>
+                <li>Fish dishes</li>
+                <li>Vegetarian dishes</li>
+              </ul>
+            </div>
+            <div class="upload-img">
+              <img src="../assets/bút trong upload ảnh.png" alt="">
+              <p>Upload image</p>
+            </div>
+          </div>
+          <div class="right">
+            <span>Basic information</span>
+            <p>Check and edit recipe's basic information</p>
+            <div class="table">
+              <div class="text">
+                <span>Name</span>
+                <p class="name">Turmeric Roasted Cauliflower Salad (lowfodmap)</p>
+              </div>
+              <div class="text">
+                <span>Description</span>
+                <p>
+                  Our roasted cauliflower salad with turmeric is low in calories
+                  and packed with punchy flavor. Turmeric adds lovely color and
+                  flavor to this easy vegan-friendly recipe
+                </p>
+              </div>
+              <div class="text">
+                <span>Author</span>
+                <p class="Author">Joana Jardim</p>
+              </div>
+              <div class="text">
+                <span>Total time</span>
+                <p>00:40</p>
+              </div>
+              <div class="text">
+                <span>Preparation time</span>
+                <p>00:40</p>
+              </div>
+              <div class="text">
+                <span>Final weight</span>
+                <p>978.8 grams</p>
+              </div>
+              <div class="text">
+                <span>Portions</span>
+                <p>4</p>
+              </div>
+            </div>
+          </div>
+          <button class="favourite">
+            <i class="fa-regular fa-heart"></i> <span>Add to favourite</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="creation">
+      <span>Creation</span>
+      <p>Create the recipe and choose the ingredients</p>
+    </div>
+    <div class="ingredients">
+      <div class="left_ingredients">
+        <div class="ingredients_list">
+          <span>Ingredients</span>
+          <p>Search and add ingredients to the recipe</p>
+          <div class="list">
+            <div class="text_ingredients">
+              1 chopped cup (1/2" pieces) of cauliflower, raw (107 g)
+            </div>
+            <div class="text_ingredients">
+              1 tsp of spices, turmeric, ground (3 g)
+            </div>
+            <div class="text_ingredients">1 tbsp of olive oil (14 g)</div>
+            <div class="text_ingredients">
+              100 grams of rice, brown, medium-grain, raw
+            </div>
+            <div class="text_ingredients">
+              150 grams of edamame, frozen, unprepared
+            </div>
+            <div class="text_ingredients">
+              1 cup, sections of lemons, raw, without peel (212 g)
+            </div>
+            <div class="text_ingredients">
+              1 cup slices of cucumber, with peel, raw (104 g)
+            </div>
+            <div class="text_ingredients">
+              4 tbsps of parsley, fresh (15 g)
+            </div>
+            <div class="text_ingredients">
+              50 grams of nuts, cashew nuts, oil roasted, with salt added
+            </div>
+            <div class="text_ingredients">
+              5 tbsps of vinegar, balsamic (80 g)
+            </div>
+            <div class="text_ingredients">
+              4 tbsps of soy sauce made from soy (tamari) (72 g)
+            </div>
+            <div class="text_ingredients">
+              1 tablespoon of oil, sesame, salad or cooking (14 g)
+            </div>
+            <div class="text_ingredients">
+              1 tbsp of sauce, fish, ready-to-serve (18 g)
+            </div>
+            <div class="text_ingredients">
+              2 tbsps of syrups, maple (40 g)
+            </div>
+          </div>
+        </div>
+        <div class="cooking_method">
+          <span>Cooking method</span>
+          <p>Give instructions to prepare this recipe</p>
+          <div>
+            <span>1</span>
+            <p>
+              STEP 1 Heat the oven to 200C/fan 180C/gas 6. Put the
+              cauliflower in an ovenproof dish or tin, add the turmeric,
+              some seasoning and 2 tbsp oil, and toss together. Roast for
+              20-25 minutes until tender. Tip onto a plate and cool. STEP 2
+              Meanwhile boil the rice in salted water until tender, adding
+              the edamame for the last minute of cooking, then drain well.
+              Leave to cool, then tip into a large bowl. Add the roasted
+              cauliflower, lemon juice, cucumber and some seasoning, and
+              toss together. Add the herbs and toss again. Add mint for
+              extra flavor. STEP 3 Whisk together the dressing ingredients.
+              Divide the cauliflower and rice between plates, scatter over
+              the cashews and drizzle with the dressing.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right_ingredients">
+        <div class="analysis">
+          <span>Global analysis per portion</span>
+          <p>Energy, macronutrients and fiber distribution</p>
+          <div class="energy">
+            <span>Energy</span>
+            <p><span>351</span> kcal</p>
+          </div>
+          <div class="chart">
+            <div class="nutrition">
+              <span class="fat">16g</span>
+              <p>Fat</p>
+            </div>
+            <div class="nutrition">
+              <span class="carbohydrate">45g</span>
+              <p>Carbohydrate</p>
+            </div>
+            <div class="nutrition">
+              <span class="protein">12g</span>
+              <p>Protein</p>
+            </div>
+            <div class="nutrition">
+              <span class="fiber">6g</span>
+              <p>Fiber</p>
+            </div>
+          </div>
+        </div>
+        <div class="macronutrients">
+          <h2>Macronutrients per portion</h2>
+          <p>Macronutrients distribution of the recipe</p>
+          <div class="chart-container">
+            <div class="pie-chart">
+              <div class="label fat-label">38.3%</div>
+              <div class="label carb-label">48.9%</div>
+              <div class="label protein-label">12.8%</div>
+            </div>
+          </div>
+          <div class="legend">
+            <div><span style="background-color: #e64a64"></span> Fat</div>
+            <div>
+              <span style="background-color: #e8a878"></span> Carbohydrate
+            </div>
+            <div>
+              <span style="background-color: #17a589"></span> Protein
+            </div>
+          </div>
+        </div>
+        <div class="table-container">
+          <h2>Micronutrients per portion</h2>
+          <p>Micronutrients distribution of the recipe</p>
+          <table>
+            <tr>
+              <td>Sodium</td>
+              <td><span>1418</span> mg</td>
+            </tr>
+            <tr>
+              <td>Vitamin A</td>
+              <td><span>18</span> ug</td>
+            </tr>
+            <tr>
+              <td>Vitamin B-6</td>
+              <td><span>0</span> mg</td>
+            </tr>
+            <tr>
+              <td>Vitamin B-12</td>
+              <td><span>0</span> ug</td>
+            </tr>
+            <tr>
+              <td>Vitamin C</td>
+              <td><span>50</span> mg</td>
+            </tr>
+            <tr>
+              <td>Vitamin D (D2 + D3)</td>
+              <td><span>0</span> ug</td>
+            </tr>
+            <tr>
+              <td>Vitamin E</td>
+              <td><span>1</span> mg</td>
+            </tr>
+            <tr>
+              <td>Vitamin K</td>
+              <td><span>87</span> ug</td>
+            </tr>
+            <tr>
+              <td>Sugars</td>
+              <td><span>13</span> g</td>
+            </tr>
+            <tr>
+              <td>Calcium</td>
+              <td><span>88</span> mg</td>
+            </tr>
+            <tr>
+              <td>Iron</td>
+              <td><span>4</span> mg</td>
+            </tr>
+            <tr>
+              <td>Magnesium</td>
+              <td><span>127</span> mg</td>
+            </tr>
+            <tr>
+              <td>Phosphorus</td>
+              <td><span>251</span> mg</td>
+            </tr>
+            <tr>
+              <td>Potassium</td>
+              <td><span>649</span> mg</td>
+            </tr>
+            <tr>
+              <td>Zinc</td>
+              <td><span>2</span> mg</td>
+            </tr>
+            <tr>
+              <td>Copper</td>
+              <td><span>1</span> mg</td>
+            </tr>
+            <tr>
+              <td>Fluoride</td>
+              <td><span>1</span> ug</td>
+            </tr>
+            <tr>
+              <td>Manganese</td>
+              <td><span>2</span> mg</td>
+            </tr>
+            <tr>
+              <td>Selenium</td>
+              <td><span>4</span> ug</td>
+            </tr>
+            <tr>
+              <td>Thiamin</td>
+              <td><span>0</span> mg</td>
+            </tr>
+            <tr>
+              <td>Riboflavin</td>
+              <td><span>0</span> mg</td>
+            </tr>
+            <tr>
+              <td>Niacin</td>
+              <td><span>3</span> mg</td>
+            </tr>
+            <tr>
+              <td>Pantothenic acid</td>
+              <td><span>1</span> mg</td>
+            </tr>
+            <tr>
+              <td>Folate, total</td>
+              <td><span>156</span> ug</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+    <script src="../js/recipe detail.js"></script>
+  </body>
+</html>
