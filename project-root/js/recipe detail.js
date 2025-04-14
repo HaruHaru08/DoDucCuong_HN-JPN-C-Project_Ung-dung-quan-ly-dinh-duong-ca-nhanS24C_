@@ -157,3 +157,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 });
+// Thêm sự kiện cho nút đăng xuất
+// - Lấy phần tử đầu tiên có class "sign_out"
+// - Khi nhấn, chuyển hướng về trang đăng nhập
+document.getElementsByClassName("sign_out")[0].onclick = function() {
+    window.location.href = "../pages/sign in.html";
+};

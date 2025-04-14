@@ -1,19 +1,19 @@
 /* Định vị form ở giữa màn hình */
 .main {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  border: 1px solid #888;
-  border-radius: 5px;
-  padding: 20px;
-  width: 900px;
-  max-height: 80vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  position: fixed; /* Định vị cố định so với khung nhìn (viewport), không bị ảnh hưởng khi cuộn trang */
+  top: 50%; /* Căn giữa theo chiều dọc */
+  left: 50%; /* Căn giữa theo chiều ngang */
+  transform: translate(-50%, -50%); /* Dịch chuyển để căn giữa chính xác */
+  background-color: #ffffff; /* Màu nền trắng */
+  border: 1px solid #888; /* Viền xám */
+  border-radius: 5px; /* Bo góc nhẹ */
+  padding: 20px; /* Đệm bên trong */
+  width: 900px; /* Chiều rộng cố định */
+  max-height: 80vh; /* Chiều cao tối đa là 80% chiều cao khung nhìn */
+  overflow-y: auto; /* Hiển thị thanh cuộn dọc nếu nội dung vượt quá chiều cao */
+  overflow-x: hidden; /* Ẩn thanh cuộn ngang */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+  z-index: 1000; /* Đặt phần tử ở lớp trên cùng để không bị che khuất */
 }
 
 /* Định dạng tiêu đề */

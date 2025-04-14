@@ -27,7 +27,7 @@ nav {
   justify-content: space-between;
   /* border-radius: 4px; */
   color: white;
-  flex-shrink: 0;
+  flex-shrink: 0;/* Ngăn phần tử bị thu nhỏ lại khi không gian bị hạn chế trong container flexbox. */
 }
 
 nav .logo {
@@ -178,12 +178,14 @@ nav .logo #img_logo {
   .child span:nth-child(2){
     border: 1px solid #eeeeee;
     border-radius: 5px;
-    width: 180px;
-    height: 30px;
+    /* width: 180px; */
+    /* height: 30px; */
     margin: 20px;
     position: relative;
     top: 120px;
-    left: 24px;
+    left: 14px;
+    padding-left: 20px;
+    padding-right: 10px;
   }
   .favourite{
     height: 30px;
@@ -578,4 +580,9 @@ nav .logo #img_logo {
   }
   .upload-img p{
     font-size: 12px;
+  }
+  #category img{
+    position: relative;
+    top: 124px;
+    left: 53px;
   }

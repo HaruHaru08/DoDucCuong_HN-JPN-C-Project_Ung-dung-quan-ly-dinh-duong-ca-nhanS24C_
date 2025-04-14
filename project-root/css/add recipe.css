@@ -582,6 +582,7 @@ input {
   height: 116px;
   /* border: 1px solid #eeeeee; */
   background-color: #eeeeee;
+  cursor: pointer;
 }
 .search {
   margin-top: 17px;
