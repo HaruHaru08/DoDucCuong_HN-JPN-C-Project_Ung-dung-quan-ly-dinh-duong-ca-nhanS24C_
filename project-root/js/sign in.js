@@ -8,7 +8,7 @@ document.getElementById("btn-login").onclick = function () {
   errorDiv.style.display = "none";
   successDiv.style.display = "none";
 
-  let users = JSON.parse(localStorage.getItem("user")) || [];
+  let users = JSON.parse(localStorage.getItem("users")) || [];
 
   if (email === "" && password === "") {
     errorDiv.style.display = "block";

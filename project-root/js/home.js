@@ -139,7 +139,7 @@ const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
 // Khai báo biến cho phân trang
 // - itemsPerPage: Số công thức hiển thị trên mỗi trang (8 công thức)
 // - currentPage: Trang hiện tại, bắt đầu từ trang 1
-const itemsPerPage = 8;
+const itemsPerPage = 4;
 let currentPage = 1;
 
 // Hàm renderRecipes: Hiển thị danh sách công thức lên giao diện

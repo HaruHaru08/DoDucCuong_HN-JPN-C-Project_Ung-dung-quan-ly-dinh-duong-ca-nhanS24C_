@@ -53,14 +53,15 @@ if (email === "") {
     error.style.display = "block";
     return;
   }
-  let user = JSON.parse(localStorage.getItem("user")) || [];
-  for (let i = 0; i < user.length; i++) {
-    if (user[i].email === email) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  // console.log(user);
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].email === email) {
       error.innerHTML = `<p>Email đã được đăng ký</p>`;
       error.style.display = "block";
       return;
     }
-    if (user[i].name === name) {
+    if (users[i].name === name) {
       error.innerHTML = `<p>Tên đã được đăng ký</p>`;
       error.style.display = "block";
       return;
@@ -71,8 +72,8 @@ if (email === "") {
     email: email,
     password: password,
   };
-  user.push(newUser);
-  localStorage.setItem("user", JSON.stringify(user));
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
   success.innerHTML=`<p>Đăng ký thành công</p>`;
   success.style.display="block";
   error.style.display="none";

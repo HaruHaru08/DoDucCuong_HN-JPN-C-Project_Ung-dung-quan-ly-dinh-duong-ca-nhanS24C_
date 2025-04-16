@@ -1,50 +1,34 @@
-// Tải thông tin người dùng đã đăng nhập từ localStorage
-// - JSON.parse chuyển chuỗi JSON thành object
-// - Nếu không có dữ liệu (null), sử dụng giá trị mặc định là object với name: "User"
+// Tải thông tin người dùng đã đăng nhập từ localStorage, nếu không có thì dùng giá trị mặc định là "User"
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || { name: "User" };
-
 // Hiển thị tên người dùng lên giao diện
-// - Lấy phần tử có id="name" và gán nội dung là tên người dùng từ loggedInUser
 document.getElementById("name").textContent = `${loggedInUser.name}`;
 
-// Tải cơ sở dữ liệu thực phẩm từ localStorage
-// - Nếu không có dữ liệu (null), sử dụng danh sách thực phẩm mặc định
-// - Danh sách mặc định chứa 9 loại thực phẩm với các thuộc tính: id, name, source, category, energy, fat, carbohydrate, protein, quantity
+// Tải cơ sở dữ liệu thực phẩm từ localStorage, nếu không có thì dùng danh sách mặc định
 let foodDatabase = JSON.parse(localStorage.getItem("foodDatabase")) || [
-    { id: 1, name: "Ackee canned drained", source: "McCance and Widdowson's", category: "Fruits", energy: 151, fat: 15, carbohydrate: 1, protein: 3, quantity: 100 },
-    { id: 2, name: "Chicken Breast grilled", source: "USDA", category: "Meat", energy: 165, fat: 3.6, carbohydrate: 0, protein: 31, quantity: 100 },
-    { id: 3, name: "Brown Rice cooked", source: "USDA", category: "Grains", energy: 123, fat: 1, carbohydrate: 26, protein: 2.7, quantity: 100 },
-    { id: 4, name: "Broccoli steamed", source: "Nutrition Australia", category: "Vegetables", energy: 35, fat: 0.4, carbohydrate: 7, protein: 3, quantity: 100 },
-    { id: 5, name: "Salmon baked", source: "USDA", category: "Meat", energy: 208, fat: 13, carbohydrate: 0, protein: 22, quantity: 100 },
-    { id: 6, name: "Almonds raw", source: "Nutrition Australia", category: "Grains", energy: 579, fat: 50, carbohydrate: 22, protein: 21, quantity: 100 },
-    { id: 7, name: "Greek Yogurt plain", source: "McCance and Widdowson's", category: "Dairy", energy: 59, fat: 0.4, carbohydrate: 3.6, protein: 10, quantity: 100 },
-    { id: 8, name: "Sweet Potato boiled", source: "Nutrition Australia", category: "Vegetables", energy: 86, fat: 0.1, carbohydrate: 20, protein: 1.6, quantity: 100 },
-    { id: 9, name: "Egg boiled", source: "USDA", category: "Meat", energy: 68, fat: 4.8, carbohydrate: 0.6, protein: 6, quantity: 100 }
+    { id: 1, name: "Ackee, canned, drained", source: "McCance and Widdowson's", category: "Fruits", energy: 151, fat: 15, carbohydrate: 1, protein: 3, quantity: 100 },
+    { id: 2, name: "Chicken Breast, grilled", source: "USDA", category: "Meat", energy: 165, fat: 3.6, carbohydrate: 0, protein: 31, quantity: 100 },
+    { id: 3, name: "Brown Rice, cooked", source: "USDA", category: "Grains", energy: 123, fat: 1, carbohydrate: 26, protein: 2.7, quantity: 100 },
+    { id: 4, name: "Broccoli, steamed", source: "Nutrition Australia", category: "Vegetables", energy: 35, fat: 0.4, carbohydrate: 7, protein: 3, quantity: 100 },
+    { id: 5, name: "Salmon, baked", source: "USDA", category: "Meat", energy: 208, fat: 13, carbohydrate: 0, protein: 22, quantity: 100 },
+    { id: 6, name: "Almonds, raw", source: "Nutrition Australia", category: "Grains", energy: 579, fat: 50, carbohydrate: 22, protein: 21, quantity: 100 },
+    { id: 7, name: "Greek Yogurt, plain", source: "McCance and Widdowson's", category: "Dairy", energy: 59, fat: 0.4, carbohydrate: 3.6, protein: 10, quantity: 100 },
+    { id: 8, name: "Sweet Potato, boiled", source: "Nutrition Australia", category: "Vegetables", energy: 86, fat: 0.1, carbohydrate: 20, protein: 1.6, quantity: 100 },
+    { id: 9, name: "Egg, boiled", source: "USDA", category: "Meat", energy: 68, fat: 4.8, carbohydrate: 0.6, protein: 6, quantity: 100 }
 ];
 
 // Hàm lưu cơ sở dữ liệu thực phẩm vào localStorage với xử lý lỗi
 function saveToLocalStorage() {
-    // Sử dụng try-catch để xử lý lỗi khi lưu vào localStorage
     try {
-        // Chuyển foodDatabase thành chuỗi JSON và lưu vào localStorage với key "foodDatabase"
         localStorage.setItem("foodDatabase", JSON.stringify(foodDatabase));
     } catch (error) {
-        // Nếu xảy ra lỗi (ví dụ: localStorage đầy), ghi log lỗi và hiển thị thông báo
         console.error("Lỗi khi lưu vào localStorage:", error);
         alert("Không thể lưu dữ liệu. Vui lòng thử lại.");
     }
 }
 
 // Sự kiện được kích hoạt khi trang web tải xong
-// - Đảm bảo DOM đã sẵn sàng trước khi thực thi các thao tác
 document.addEventListener("DOMContentLoaded", function () {
     // Lấy các phần tử giao diện để tương tác
-    // - createFoodBtn: Nút mở form tạo thực phẩm mới
-    // - foodChild: Container chứa danh sách thực phẩm
-    // - searchInput: Ô tìm kiếm thực phẩm
-    // - sortSelect: Dropdown sắp xếp thực phẩm
-    // - categorySelect: Dropdown lọc theo danh mục
-    // - prevBtn, nextBtn: Nút điều hướng phân trang
     const createFoodBtn = document.querySelector(".creat_food");
     const foodChild = document.querySelector(".food_child");
     const searchInput = document.querySelector(".search_food");
@@ -54,27 +38,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("btn-next");
 
     // Thiết lập số lượng mục trên mỗi trang và trang hiện tại
-    // - itemsPerPage: Số thực phẩm hiển thị trên mỗi trang (9)
-    // - currentPage: Trang hiện tại, mặc định là 1
-    // - currentFoods: Mảng chứa danh sách thực phẩm hiện tại, ban đầu là bản sao của foodDatabase
     const itemsPerPage = 9;
     let currentPage = 1;
     let currentFoods = [...foodDatabase];
 
     // Sự kiện khi nhấn nút "Create new food" để mở modal thêm thực phẩm
     createFoodBtn.addEventListener("click", function () {
-        // Kiểm tra xem modal đã tồn tại chưa, nếu có thì không tạo mới
         if (document.querySelector(".main")) return;
 
-        // Tạo phần tử div cho modal
         const mainForm = document.createElement("div");
-        // Thêm class "main" để áp dụng kiểu CSS
         mainForm.classList.add("main");
-        // Gán nội dung HTML cho modal, bao gồm:
-        // - Tiêu đề và nút đóng
-        // - Các trường nhập thông tin: tên, danh mục, nguồn, số lượng
-        // - Các trường dinh dưỡng: năng lượng, chất béo, carbohydrate, protein
-        // - Nút hủy và lưu
         mainForm.innerHTML = `
             <div class="title">
                 <p>Thêm thực phẩm mới</p>
@@ -125,6 +98,54 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p><span>Protein</span><input type="text" name="protein" value="" /><span>g</span></p>
                     </div>
                 </div>
+                <span>Micronutrients</span>
+                <div class="specifications">
+                    <div class="columns">
+                        <div class="column">
+                            <p><span>Cholesterol</span><input type="text" /><span>mg</span></p>
+                            <p><span>Water</span><input type="text" /><span>g</span></p>
+                            <p><span>Vitamin B-12</span><input type="text" /><span>ug</span></p>
+                            <p><span>Vitamin E</span><input type="text" /><span>mg</span></p>
+                            <p><span>Lactose</span><input type="text" /><span>g</span></p>
+                            <p><span>Sugars</span><input type="text" /><span>g</span></p>
+                            <p><span>Magnesium</span><input type="text" /><span>mg</span></p>
+                            <p><span>Zinc</span><input type="text" /><span>mg</span></p>
+                            <p><span>Manganese</span><input type="text" /><span>mg</span></p>
+                            <p><span>Riboflavin</span><input type="text" /><span>mg</span></p>
+                            <p><span>Folate, total</span><input type="text" /><span>ug</span></p>
+                            <p><span>Fatty acids, total saturated</span><input type="text" /><span>g</span></p>
+                            <p><span>Chloride</span><input type="text" /><span>mg</span></p>
+                        </div>
+                        <div class="column">
+                            <p><span>Fiber</span><input type="text" /><span>g</span></p>
+                            <p><span>Vitamin A</span><input type="text" /><span>ug</span></p>
+                            <p><span>Vitamin C</span><input type="text" /><span>mg</span></p>
+                            <p><span>Vitamin K</span><input type="text" /><span>ug</span></p>
+                            <p><span>Alcohol</span><input type="text" /><span>g</span></p>
+                            <p><span>Calcium</span><input type="text" /><span>mg</span></p>
+                            <p><span>Phosphorus</span><input type="text" /><span>mg</span></p>
+                            <p><span>Copper</span><input type="text" /><span>mg</span></p>
+                            <p><span>Selenium</span><input type="text" /><span>ug</span></p>
+                            <p><span>Niacin</span><input type="text" /><span>mg</span></p>
+                            <p><span>Folic acid</span><input type="text" /><span>ug</span></p>
+                            <p><span>Fatty acids, total monounsaturated</span><input type="text" /><span>g</span></p>
+                        </div>
+                        <div class="column">
+                            <p><span>Sodium</span><input type="text" /><span>mg</span></p>
+                            <p><span>Vitamin B-6</span><input type="text" /><span>mg</span></p>
+                            <p><span>Vitamin D (D2 + D3)</span><input type="text" /><span>ug</span></p>
+                            <p><span>Starch</span><input type="text" /><span>g</span></p>
+                            <p><span>Caffeine</span><input type="text" /><span>mg</span></p>
+                            <p><span>Iron</span><input type="text" /><span>mg</span></p>
+                            <p><span>Potassium</span><input type="text" /><span>mg</span></p>
+                            <p><span>Fluoride</span><input type="text" /><span>ug</span></p>
+                            <p><span>Thiamin</span><input type="text" /><span>mg</span></p>
+                            <p><span>Pantothenic acid</span><input type="text" /><span>mg</span></p>
+                            <p><span>Fatty acids, total trans</span><input type="text" /><span>g</span></p>
+                            <p><span>Fatty acids, total polyunsaturated</span><input type="text" /><span>g</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="button">
                 <button class="cancel-btn">Hủy</button>
@@ -132,174 +153,294 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
-        // Thêm modal vào body của trang
         document.body.appendChild(mainForm);
 
-        // Sự kiện khi nhấn nút "Lưu và đóng"
         const saveBtn = mainForm.querySelector(".save-btn");
         saveBtn.addEventListener("click", function () {
-            // Lấy tất cả input trong form để xử lý
             const inputs = mainForm.querySelectorAll(".infor input, .macronutrients input");
-            // Biến kiểm tra tính hợp lệ của dữ liệu
             let isValid = true;
-            // Tạo object để lưu thông tin thực phẩm mới
             const newFood = {};
-            // Regex kiểm tra tên chỉ chứa chữ cái và khoảng trắng
-            const nameRegex = /^[A-Za-z\s]+$/;
-
-            // Lấy và xử lý giá trị từ các input
             inputs.forEach(input => {
                 const fieldName = input.name;
                 const value = input.value.trim();
-
-                // Xử lý trường tên
+            
                 if (fieldName === "name") {
+                    // Chỉ áp dụng lọc cho trường name
+                    const nameRegex = /^[A-Za-z\s]+$/; // Chỉ chấp nhận chữ cái và khoảng trắng
                     if (value) {
-                        // Nếu tên hợp lệ (chỉ chữ cái và khoảng trắng)
                         if (nameRegex.test(value)) {
-                            newFood[fieldName] = value;
+                            newFood[fieldName] = value; // Giá trị hợp lệ
                         } else {
-                            // Loại bỏ số và ký tự đặc biệt, nhưng đánh dấu là không hợp lệ
+                            // Nếu không hợp lệ, loại bỏ số và ký tự đặc biệt
                             newFood[fieldName] = value.replace(/[^A-Za-z\s]/g, "");
-                            isValid = false;
-                            input.style.border = "1px solid red";
                         }
                     } else {
-                        // Tên rỗng là không hợp lệ
-                        newFood[fieldName] = "";
-                        isValid = false;
-                        input.style.border = "1px solid red";
+                        newFood[fieldName] = ""; // Giá trị rỗng nếu không nhập
                     }
                 } else {
-                    // Các trường khác: nếu rỗng thì gán giá trị mặc định
+                    // Các trường khác giữ nguyên logic
                     newFood[fieldName] = value || (fieldName === "source" ? "" : "0");
                 }
-                // Reset viền cho các trường không phải tên
-                if (fieldName !== "name") input.style.border = "";
             });
-
-            // Kiểm tra danh mục
-            // - Lấy giá trị danh mục từ dropdown
             const category = mainForm.querySelector("#category").value;
-            // Nếu danh mục là giá trị mặc định ("category"), đánh dấu không hợp lệ
             if (category === "category") {
                 isValid = false;
                 mainForm.querySelector("#category").style.border = "1px solid red";
             } else {
-                // Gán danh mục vào object thực phẩm
                 newFood.category = category;
             }
 
-            // Kiểm tra và chuẩn hóa các trường số
             if (isValid) {
-                // Các trường cần là số: energy, fat, carbohydrate, protein, quantity
                 const numericFields = ["energy", "fat", "carbohydrate", "protein", "quantity"];
                 numericFields.forEach(field => {
-                    // Nếu trường không tồn tại, gán mặc định là "0"
                     if (!(field in newFood)) {
                         newFood[field] = "0";
                     }
-                    // Chuyển giá trị thành số
-                    const value = parseFloat(newFood[field]);
-                    // Nếu giá trị không phải số hoặc âm, đánh dấu không hợp lệ
-                    if (isNaN(value) || value < 0) {
+                    if (isNaN(parseFloat(newFood[field])) || parseFloat(newFood[field]) < 0) {
                         isValid = false;
-                        const input = mainForm.querySelector(`input[name="${field}"]`);
-                        if (input) input.style.border = "1px solid red";
-                    } else {
-                        // Lưu giá trị số hợp lệ
-                        newFood[field] = value;
+                        mainForm.querySelector(`input[name="${field}"]`).style.border = "1px solid red";
                     }
                 });
 
-                // Nếu dữ liệu hợp lệ, thêm thực phẩm mới vào database
                 if (isValid) {
                     const newFoodEntry = {
-                        id: foodDatabase.length + 1, // Tạo id mới dựa trên độ dài database
-                        name: newFood.name,
+                        id: foodDatabase.length + 1,
+                        name: newFood.name || "",
                         source: newFood.source || "My foods",
                         category: newFood.category,
-                        energy: newFood.energy || 0,
-                        fat: newFood.fat || 0,
-                        carbohydrate: newFood.carbohydrate || 0,
-                        protein: newFood.protein || 0,
-                        quantity: newFood.quantity || 100
+                        energy: parseFloat(newFood.energy) || 0,
+                        fat: parseFloat(newFood.fat) || 0,
+                        carbohydrate: parseFloat(newFood.carbohydrate) || 0,
+                        protein: parseFloat(newFood.protein) || 0,
+                        quantity: parseFloat(newFood.quantity) || 100
                     };
-                    // Thêm thực phẩm mới vào foodDatabase
                     foodDatabase.push(newFoodEntry);
-                    // Lưu database vào localStorage
                     saveToLocalStorage();
-                    // Cập nhật danh sách hiện tại
                     currentFoods = [...foodDatabase];
-                    // Đóng modal
                     mainForm.remove();
-                    // Hiển thị lại danh sách thực phẩm
                     renderFoods(currentFoods);
-                    // Cập nhật phân trang
-                    renderPagination(Math.ceil(currentFoods.length / itemsPerPage));
+                    renderPagination(Math.ceil(currentFoods.length / itemsPerPage)); // Cập nhật phân trang
                 } else {
-                    // Nếu không hợp lệ, hiển thị thông báo lỗi
                     alert("Vui lòng nhập số không âm cho các giá trị dinh dưỡng");
                 }
             } else {
-                // Nếu tên hoặc danh mục không hợp lệ, hiển thị thông báo
-                alert("Vui lòng điền đầy đủ tên (chỉ chữ cái và khoảng trắng) và chọn danh mục thực phẩm");
+                alert("Vui lòng chọn danh mục thực phẩm");
             }
         });
 
-        // Sự kiện khi nhấn nút "Hủy"
-        // - Đóng modal bằng cách xóa khỏi DOM
         mainForm.querySelector(".cancel-btn").addEventListener("click", function () {
             mainForm.remove();
         });
 
-        // Sự kiện khi nhấn nút đóng (X)
-        // - Tương tự nút hủy, xóa modal
         mainForm.querySelector(".close-btn").addEventListener("click", function () {
             mainForm.remove();
         });
     });
 
-    // Hàm tạo modal chi tiết cho một thực phẩm
-    // - Được gọi khi nhấp vào một thực phẩm trong danh sách
     function createMainElement(foodData) {
-        // (Giữ nguyên như mã gốc, không có thay đổi)
+        const main = document.createElement("div");
+        main.className = "main";
+        main.innerHTML = `
+            <div>
+                <div class="title">
+                    <p>Thông tin thực phẩm</p>
+                    <p>Kiểm tra và cập nhật thông tin về thực phẩm</p>
+                    <i class="fa-solid fa-xmark close-btn"></i>
+                </div>
+                <div class="infor">
+                    <div class="left">
+                        <p class="name-row">
+                            <span>Tên</span>
+                            <input type="text" name="name" value="${foodData.name}" />
+                        </p>
+                        <p class="category-row">
+                            <span>Danh mục</span>
+                            <select id="category">
+                                <option value="category">Category</option>
+                                <option value="Grains" ${foodData.category === "Grains" ? "selected" : ""}>Grains</option>
+                                <option value="Meat" ${foodData.category === "Meat" ? "selected" : ""}>Meat</option>
+                                <option value="Fruits" ${foodData.category === "Fruits" ? "selected" : ""}>Fruits</option>
+                                <option value="Vegetables" ${foodData.category === "Vegetables" ? "selected" : ""}>Vegetables</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="right">
+                        <p class="source-row">
+                            <span>Nguồn</span>
+                            <input type="text" name="source" value="${foodData.source}" />
+                        </p>
+                        <p class="quantity-row">
+                            <span>Số lượng</span>
+                            <input type="text" name="quantity" value="${foodData.quantity}" />
+                            <span>grams</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="nutritional">
+                    <p>Nutritional value per 100 g</p>
+                </div>
+                <div class="macronutrients">
+                    <span>Macronutrients</span>
+                    <div class="content_macronutrional">
+                        <div class="left_macronutrional">
+                            <p><span>Energy</span><input type="text" name="energy" value="${foodData.energy}" /><span>kcal</span></p>
+                            <p><span>Carbohydrate</span><input type="text" name="carbohydrate" value="${foodData.carbohydrate}" /><span>g</span></p>
+                        </div>
+                        <div class="right_macronutrional">
+                            <p><span>Fat</span><input type="text" name="fat" value="${foodData.fat}" /><span>g</span></p>
+                            <p><span>Protein</span><input type="text" name="protein" value="${foodData.protein}" /><span>g</span></p>
+                        </div>
+                    </div>
+                    <span>Micronutrients</span>
+                    <div class="specifications">
+                        <div class="columns">
+                            <div class="column">
+                                <p><span>Cholesterol</span><input type="text" value="0.0" /><span>mg</span></p>
+                                <p><span>Water</span><input type="text" value="76.7" /><span>g</span></p>
+                                <p><span>Vitamin B-12</span><input type="text" value="0.0" /><span>ug</span></p>
+                                <p><span>Vitamin E</span><input type="text" value="" /><span>mg</span></p>
+                                <p><span>Lactose</span><input type="text" value="0.0" /><span>g</span></p>
+                                <p><span>Sugars</span><input type="text" value="0.8" /><span>g</span></p>
+                                <p><span>Magnesium</span><input type="text" value="40.0" /><span>mg</span></p>
+                                <p><span>Zinc</span><input type="text" value="0.6" /><span>mg</span></p>
+                                <p><span>Manganese</span><input type="text" /><span>mg</span></p>
+                                <p><span>Riboflavin</span><input type="text" value="0.07"/><span>mg</span></p>
+                                <p><span>Folate, total</span><input type="text" value="41.0"/><span>ug</span></p>
+                                <p><span>Fatty acids, total saturated</span><input type="text" /><span>g</span></p>
+                                <p><span>Chloride</span><input type="text" value="340.0"/><span>mg</span></p>
+                            </div>
+                            <div class="column">
+                                <p><span>Fiber</span><input type="text" value="" /><span>g</span></p>
+                                <p><span>Vitamin A</span><input type="text" value="" /><span>ug</span></p>
+                                <p><span>Vitamin C</span><input type="text" value="30.0" /><span>mg</span></p>
+                                <p><span>Vitamin K</span><input type="text" value="" /><span>ug</span></p>
+                                <p><span>Alcohol</span><input type="text" value="" /><span>g</span></p>
+                                <p><span>Calcium</span><input type="text" value="35.0" /><span>mg</span></p>
+                                <p><span>Phosphorus</span><input type="text" value="47.0" /><span>mg</span></p>
+                                <p><span>Copper</span><input type="text" value="0.27" /><span>mg</span></p>
+                                <p><span>Selenium</span><input type="text" /><span>ug</span></p>
+                                <p><span>Niacin</span><input type="text" value="0.6"/><span>mg</span></p>
+                                <p><span>Folic acid</span><input type="text" /><span>ug</span></p>
+                                <p><span>Fatty acids, total monounsaturated</span><input type="text" /><span>g</span></p>
+                            </div>
+                            <div class="column">
+                                <p><span>Sodium</span><input type="text" value="240.0" /><span>mg</span></p>
+                                <p><span>Vitamin B-6</span><input type="text" value="0.06" /><span>mg</span></p>
+                                <p><span>Vitamin D (D2 + D3)</span><input type="text" value="0.0" /><span>ug</span></p>
+                                <p><span>Starch</span><input type="text" value="0.0" /><span>g</span></p>
+                                <p><span>Caffeine</span><input type="text" value="" /><span>mg</span></p>
+                                <p><span>Iron</span><input type="text" value="0.7" /><span>mg</span></p>
+                                <p><span>Potassium</span><input type="text" value="270.0" /><span>mg</span></p>
+                                <p><span>Fluoride</span><input type="text" value="" /><span>ug</span></p>
+                                <p><span>Thiamin</span><input type="text" value="0.03"/><span>mg</span></p>
+                                <p><span>Pantothenic acid</span><input type="text" /><span>mg</span></p>
+                                <p><span>Fatty acids, total trans</span><input type="text" value="0.0"/><span>g</span></p>
+                                <p><span>Fatty acids, total polyunsaturated</span><input type="text" /><span>g</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <button class="cancel-btn">Hủy</button>
+                    <button class="save-btn">Lưu và đóng</button>
+                </div>
+            </div>
+        `;
+
+        document.querySelector(".container").appendChild(main);
+
+        const saveBtn = main.querySelector(".save-btn");
+        saveBtn.addEventListener("click", () => {
+            const inputs = main.querySelectorAll(".infor input, .macronutrients input");
+            let isValid = true;
+            const updatedFood = {};
+
+            inputs.forEach(input => {
+                if (input.value.trim()) {
+                    updatedFood[input.name] = input.value;
+                } else {
+                    updatedFood[input.name] = input.name === "name" || input.name === "source" ? "" : "0";
+                }
+            });
+
+            const category = main.querySelector("#category").value;
+            if (category === "category") {
+                isValid = false;
+                main.querySelector("#category").style.border = "1px solid red";
+            } else {
+                updatedFood.category = category;
+            }
+
+            if (isValid) {
+                const numericFields = ["energy", "fat", "carbohydrate", "protein", "quantity"];
+                numericFields.forEach(field => {
+                    if (!(field in updatedFood)) {
+                        updatedFood[field] = "0";
+                    }
+                    if (isNaN(parseFloat(updatedFood[field])) || parseFloat(updatedFood[field]) < 0) {
+                        isValid = false;
+                        main.querySelector(`input[name="${field}"]`).style.border = "1px solid red";
+                    }
+                });
+
+                if (isValid) {
+                    const index = foodDatabase.findIndex(f => f.id === foodData.id);
+                    if (index !== -1) {
+                        foodDatabase[index] = {
+                            ...foodDatabase[index],
+                            name: updatedFood.name || "",
+                            source: updatedFood.source || "My foods",
+                            category: updatedFood.category,
+                            energy: parseFloat(updatedFood.energy) || 0,
+                            fat: parseFloat(updatedFood.fat) || 0,
+                            carbohydrate: parseFloat(updatedFood.carbohydrate) || 0,
+                            protein: parseFloat(updatedFood.protein) || 0,
+                            quantity: parseFloat(updatedFood.quantity) || 100
+                        };
+                        saveToLocalStorage();
+                        currentFoods = [...foodDatabase];
+                        main.remove();
+                        renderFoods(currentFoods);
+                        renderPagination(Math.ceil(currentFoods.length / itemsPerPage)); // Cập nhật phân trang
+                    }
+                } else {
+                    alert("Vui lòng nhập số không âm cho các giá trị dinh dưỡng");
+                }
+            } else {
+                alert("Vui lòng chọn danh mục thực phẩm");
+            }
+        });
+
+        main.querySelector(".cancel-btn").addEventListener("click", () => {
+            main.remove();
+        });
+
+        main.querySelector(".close-btn").addEventListener("click", () => {
+            main.remove();
+        });
     }
 
-    // Sự kiện khi nhấp vào một thực phẩm trong danh sách
-    // - Tìm phần tử thực phẩm gần nhất với vị trí nhấp
     foodChild.addEventListener("click", (event) => {
-        // Lấy phần tử .child gần nhất từ vị trí nhấp
         const child = event.target.closest(".child");
-        if (!child) return; // Nếu không có, thoát
+        if (!child) return;
 
-        // Lấy tên thực phẩm từ phần tử
         const name = child.querySelector(".text p:first-child").textContent;
-        // Tìm dữ liệu thực phẩm trong foodDatabase
         const foodData = foodDatabase.find(f => f.name === name);
         if (foodData) {
-            // Nếu tìm thấy, hiển thị modal chi tiết
             createMainElement(foodData);
         }
     });
 
-    // Hàm hiển thị danh sách thực phẩm trên giao diện
+    // Hàm hiển thị danh sách thực phẩm với phân trang
     function renderFoods(foods) {
-        // Xóa nội dung cũ trong container danh sách thực phẩm
         foodChild.innerHTML = "";
-        // Tính toán vị trí bắt đầu và kết thúc của trang hiện tại
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
-        // Lấy danh sách thực phẩm cho trang hiện tại
         const paginatedFoods = foods.slice(start, end);
 
-        // Duyệt qua từng thực phẩm để tạo phần tử hiển thị
         paginatedFoods.forEach(food => {
             const foodElement = document.createElement("div");
             foodElement.className = "child";
-            // Tạo HTML cho mỗi thực phẩm, bao gồm:
-            // - Tên và nguồn
-            // - Bảng thông tin dinh dưỡng
             foodElement.innerHTML = `
                 <div class="text">
                     <p>${food.name}</p>
@@ -322,113 +463,88 @@ document.addEventListener("DOMContentLoaded", function () {
                     </table>
                 </div>
             `;
-            // Thêm phần tử vào container
             foodChild.appendChild(foodElement);
         });
 
-        // Tính toán tổng số trang
+        // Cập nhật phân trang sau khi render danh sách
         const totalPages = Math.ceil(foods.length / itemsPerPage);
-        // Cập nhật phân trang
         renderPagination(totalPages);
     }
 
     // Hàm hiển thị các nút phân trang
     function renderPagination(totalPages) {
-        // Lấy container chứa các nút phân trang
         const pageNumberContainer = document.getElementById("page-number");
-        if (!pageNumberContainer) return; // Nếu không tồn tại, thoát
+        if (!pageNumberContainer) return; // Kiểm tra nếu phần tử không tồn tại
 
-        // Xóa các nút phân trang cũ
-        pageNumberContainer.innerHTML = "";
-        // Tạo nút cho từng trang
+        pageNumberContainer.innerHTML = ""; // Xóa nội dung cũ
+
         for (let i = 1; i <= totalPages; i++) {
             const pageButton = document.createElement("button");
             pageButton.textContent = i;
             pageButton.classList.add("page-btn");
-            // Đánh dấu nút của trang hiện tại
             if (i === currentPage) {
-                pageButton.classList.add("active");
+                pageButton.classList.add("active"); // Đánh dấu trang hiện tại
             }
-            // Thêm sự kiện nhấp để chuyển trang
             pageButton.addEventListener("click", () => {
                 currentPage = i;
-                renderFoods(currentFoods);
+                renderFoods(currentFoods); // Hiển thị lại danh sách cho trang mới
             });
             pageNumberContainer.appendChild(pageButton);
         }
     }
 
     // Sự kiện tìm kiếm thực phẩm
-    // - Kích hoạt mỗi khi người dùng nhập vào ô tìm kiếm
     searchInput.addEventListener("input", function (e) {
-        // Lấy giá trị tìm kiếm, chuyển thành chữ thường và loại bỏ khoảng trắng thừa
         const searchTerm = e.target.value.toLowerCase().trim();
-        // Lọc danh sách thực phẩm dựa trên tên, nguồn, hoặc danh mục
         currentFoods = foodDatabase.filter(food =>
             food.name.toLowerCase().includes(searchTerm) ||
             food.source.toLowerCase().includes(searchTerm) ||
             food.category.toLowerCase().includes(searchTerm)
         );
-        // Đặt lại về trang đầu tiên
         currentPage = 1;
-        // Hiển thị danh sách thực phẩm đã lọc
         renderFoods(currentFoods);
     });
 
     // Sự kiện sắp xếp thực phẩm
-    // - Kích hoạt khi chọn một tùy chọn trong dropdown sắp xếp
-    if (sortSelect) {
-        sortSelect.addEventListener("change", function (e) {
-            // Lấy giá trị sắp xếp, chuyển thành chữ thường
-            const sortBy = e.target.value.toLowerCase();
-            // Sắp xếp danh sách thực phẩm theo giá trị được chọn
-            switch (sortBy) {
-                case "energy":
-                    currentFoods.sort((a, b) => b.energy - a.energy); // Giảm dần theo năng lượng
-                    break;
-                case "fat":
-                    currentFoods.sort((a, b) => b.fat - a.fat); // Giảm dần theo chất béo
-                    break;
-                case "carbohydrate":
-                    currentFoods.sort((a, b) => b.carbohydrate - a.carbohydrate); // Giảm dần theo carbohydrate
-                    break;
-                case "protein":
-                    currentFoods.sort((a, b) => b.protein - a.protein); // Giảm dần theo protein
-                    break;
-                default:
-                    currentFoods = [...foodDatabase]; // Mặc định: không sắp xếp
-            }
-            // Đặt lại về trang đầu tiên
-            currentPage = 1;
-            // Hiển thị danh sách đã sắp xếp
-            renderFoods(currentFoods);
-        });
-    }
+    sortSelect.addEventListener("change", function (e) {
+        const sortBy = e.target.value.toLowerCase();
+        switch (sortBy) {
+            case "energy":
+                currentFoods.sort((a, b) => b.energy - a.energy);
+                break;
+            case "fat":
+                currentFoods.sort((a, b) => b.fat - a.fat);
+                break;
+            case "carbohydrate":
+                currentFoods.sort((a, b) => b.carbohydrate - a.carbohydrate);
+                break;
+            case "protein":
+                currentFoods.sort((a, b) => b.protein - a.protein);
+                break;
+            default:
+                currentFoods = [...foodDatabase];
+        }
+        currentPage = 1;
+        renderFoods(currentFoods);
+    });
 
     // Sự kiện lọc theo danh mục
-    // - Kích hoạt khi chọn một danh mục trong dropdown
     if (categorySelect) {
         categorySelect.addEventListener("change", function (e) {
-            // Lấy giá trị danh mục
             const category = e.target.value;
-            // Nếu chọn "category", hiển thị tất cả thực phẩm
             if (category === "category") {
                 currentFoods = [...foodDatabase];
             } else {
-                // Lọc danh sách thực phẩm theo danh mục
                 currentFoods = foodDatabase.filter(food =>
                     food.category.toLowerCase() === category.toLowerCase()
                 );
             }
-            // Đặt lại về trang đầu tiên
             currentPage = 1;
-            // Hiển thị danh sách đã lọc
             renderFoods(currentFoods);
         });
     }
 
-    // Sự kiện nút "Trang trước"
-    // - Giảm trang hiện tại nếu không phải trang đầu tiên
+    // Sự kiện nút Previous (trang trước)
     if (prevBtn) {
         prevBtn.addEventListener("click", () => {
             if (currentPage > 1) {
@@ -438,8 +554,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Sự kiện nút "Trang sau"
-    // - Tăng trang hiện tại nếu chưa phải trang cuối
+    // Sự kiện nút Next (trang sau)
     if (nextBtn) {
         nextBtn.addEventListener("click", () => {
             const totalPages = Math.ceil(currentFoods.length / itemsPerPage);
@@ -450,12 +565,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Hiển thị danh sách thực phẩm ban đầu khi trang tải
+    // Hiển thị danh sách thực phẩm lần đầu khi trang tải
     renderFoods(foodDatabase);
 });
-
-// Sự kiện đăng xuất
-// - Khi nhấn nút đăng xuất, chuyển hướng về trang đăng nhập
-document.getElementsByClassName("sign_out")[0].onclick = function () {
-    window.location.href = "../pages/sign in.html";
-};
+document.getElementsByClassName("sign_out")[0].onclick=function(){
+    window.location.href="../pages/sign in.html"
+}
